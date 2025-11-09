@@ -156,10 +156,6 @@ public class Program
         app.UseApiKey();
         app.UseRequestLogging();
 
-        app.UseRateLimiting();
-        app.UseApiKey();
-        app.UseRequestLogging();
-
         app.UseRouting();
         app.UseAuthentication();
         app.UseAuthorization();
