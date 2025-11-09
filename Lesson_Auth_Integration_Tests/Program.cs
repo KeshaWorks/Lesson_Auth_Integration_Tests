@@ -3,12 +3,7 @@ using FluentValidation.AspNetCore;
 using Lesson_Auth_Integration_Tests.Authorization;
 using Lesson_Auth_Integration_Tests.Db;
 using Lesson_Auth_Integration_Tests.Interfaces;
-<<<<<<< HEAD
 using Lesson_Auth_Integration_Tests.Middlewares;
-=======
-using Lesson_Auth_Integration_Tests.Middleware;
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
-using Lesson_Auth_Integration_Tests.Persistence;
 using Lesson_Auth_Integration_Tests.Profiles;
 using Lesson_Auth_Integration_Tests.Repositories;
 using Lesson_Auth_Integration_Tests.Services;
@@ -30,23 +25,15 @@ public class Program
 
         var builder = WebApplication.CreateBuilder(args);
 
-<<<<<<< HEAD
         builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
-=======
-        // === CONFIGURATION ===
+
         builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
-        // === DATABASE (SQLite) ===
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
         builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
         builder.Services.AddScoped<DbInitializer>();
 
-<<<<<<< HEAD
-=======
-        // === IDENTITY ===
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
         builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
         {
             options.Password.RequireDigit = false;
@@ -58,10 +45,6 @@ public class Program
         .AddEntityFrameworkStores<AppDbContext>()
         .AddDefaultTokenProviders();
 
-<<<<<<< HEAD
-=======
-        // === JWT ===
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
         var jwtSettings = builder.Configuration.GetSection("JwtSettings");
         var key = Encoding.ASCII.GetBytes(jwtSettings["SecretKey"]);
 
@@ -87,10 +70,6 @@ public class Program
             };
         });
 
-<<<<<<< HEAD
-=======
-        // === AUTHORIZATION POLICIES ===
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
         builder.Services.AddAuthorization(options =>
         {
             options.AddPolicy("CanCreateTodo", policy =>
@@ -100,48 +79,34 @@ public class Program
                 policy.Requirements.Add(new ApiKeyRequirement()));
         });
 
-<<<<<<< HEAD
-=======
-        // === APPLICATION SERVICES (SOLID: Dependency Inversion) ===
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
         builder.Services.AddScoped<IAuthService, AuthService>();
         builder.Services.AddScoped<ITodoService, TodoService>();
         builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-<<<<<<< HEAD
         builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
         builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
-=======
-        // === REPOSITORIES ===
         builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
         builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
-        // === MAPPING (AutoMapper) ===
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
         builder.Services.AddAutoMapper(config =>
         {
             config.AddProfile<MappingProfile>();
         });
 
-<<<<<<< HEAD
         builder.Services.AddFluentValidationAutoValidation();
         builder.Services.AddValidatorsFromAssemblyContaining<RegisterRequestValidator>(ServiceLifetime.Scoped);
 
         builder.Services.AddSingleton<RatesStore>();
         builder.Services.AddMemoryCache();
 
-=======
-        // === VALIDATION (FluentValidation) ===
+
         builder.Services.AddFluentValidationAutoValidation();
         builder.Services.AddValidatorsFromAssemblyContaining<RegisterRequestValidator>(ServiceLifetime.Scoped);
 
-        // === MIDDLEWARE DEPENDENCIES ===
         builder.Services.AddSingleton<RatesStore>();
         builder.Services.AddMemoryCache();
 
-        // === SWAGGER ===
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(c =>
         {
@@ -169,28 +134,16 @@ public class Program
             });
         });
 
-<<<<<<< HEAD
-=======
-        // === CONTROLLERS ===
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
         builder.Services.AddControllers();
 
         var app = builder.Build();
 
-<<<<<<< HEAD
-=======
-        // === DATABASE INITIALIZATION ===
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
         using (var scope = app.Services.CreateScope())
         {
             var dbInitializer = scope.ServiceProvider.GetRequiredService<DbInitializer>();
             await dbInitializer.InitializeAsync();
         }
 
-<<<<<<< HEAD
-=======
-        // === MIDDLEWARE PIPELINE (SOLID: Open/Closed) ===
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
@@ -199,16 +152,13 @@ public class Program
 
         app.UseHttpsRedirection();
 
-<<<<<<< HEAD
         app.UseRateLimiting();
         app.UseApiKey();
         app.UseRequestLogging();
-=======
-        // Custom middleware with DI
-        app.UseRateLimiting(); // ← Rate limiting before authentication
-        app.UseApiKey();       // ← API key validation
-        app.UseRequestLogging(); // ← Logging after all auth
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
+
+        app.UseRateLimiting();
+        app.UseApiKey();
+        app.UseRequestLogging();
 
         app.UseRouting();
         app.UseAuthentication();

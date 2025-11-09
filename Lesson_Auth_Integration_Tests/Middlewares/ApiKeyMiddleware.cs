@@ -1,14 +1,5 @@
-<<<<<<< HEAD
 ﻿namespace Lesson_Auth_Integration_Tests.Middlewares;
 
-=======
-﻿// ====================================================================================================
-// Middleware/ApiKeyMiddleware.cs
-// ====================================================================================================
-namespace Lesson_Auth_Integration_Tests.Middleware;
-
-// SOLID: Single Responsibility - API key validation only
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
 public class ApiKeyMiddleware
 {
     private readonly RequestDelegate _next;

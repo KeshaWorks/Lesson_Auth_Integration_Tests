@@ -11,11 +11,6 @@ public class TodoController : ControllerBase
 {
     private readonly ITodoService _todoService;
     private readonly IHttpContextAccessor _httpContextAccessor;
-<<<<<<< HEAD
-=======
-
-    // SOLID: Dependency Inversion
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
     public TodoController(
         ITodoService todoService,
         IHttpContextAccessor httpContextAccessor)

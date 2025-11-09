@@ -1,5 +1,5 @@
 ﻿using Lesson_Auth_Integration_Tests;
-using Lesson_Auth_Integration_Tests.Persistence;
+using Lesson_Auth_Integration_Tests.Db;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Data.Sqlite;
@@ -23,29 +23,17 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {
         builder.ConfigureServices(services =>
         {
-<<<<<<< HEAD
-=======
-            // Remove existing DbContext registration
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
             var descriptor = services.SingleOrDefault(
                 d => d.ServiceType == typeof(DbContextOptions<AppDbContext>));
 
             if (descriptor != null)
                 services.Remove(descriptor);
 
-<<<<<<< HEAD
-=======
-            // Register InMemory database for tests
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlite(_connection);
             });
 
-<<<<<<< HEAD
-=======
-            // Build service provider to create scope
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
             using var scope = services.BuildServiceProvider().CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
             dbContext.Database.EnsureCreated();

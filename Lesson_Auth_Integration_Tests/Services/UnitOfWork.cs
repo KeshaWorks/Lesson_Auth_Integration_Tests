@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-﻿using Lesson_Auth_Integration_Tests.Interfaces;
-=======
-﻿// ====================================================================================================
-// Services/AuthService.cs
-// ====================================================================================================
-
+using Lesson_Auth_Integration_Tests.Db;
 using Lesson_Auth_Integration_Tests.Interfaces;
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
 using Lesson_Auth_Integration_Tests.Models;
-using Lesson_Auth_Integration_Tests.Persistence;
 using Lesson_Auth_Integration_Tests.Repositories;
 
 namespace Lesson_Auth_Integration_Tests.Services;

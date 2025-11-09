@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lesson_Auth_Integration_Tests.Persistence;
+namespace Lesson_Auth_Integration_Tests.Db;
 
 public class AppDbContext : IdentityDbContext<IdentityUser>
 {

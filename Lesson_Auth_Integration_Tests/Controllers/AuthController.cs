@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-﻿
-=======
-﻿// ====================================================================================================
-// Controllers/AuthController.cs
-// ====================================================================================================
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
-using Lesson_Auth_Integration_Tests.DTOs;
+using Lesson_Auth_Integration_Tests.DTOs.Lesson_Auth_Integration_Tests.DTOs;
 using Lesson_Auth_Integration_Tests.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +10,6 @@ public class AuthController : ControllerBase
 {
     private readonly IAuthService _authService;
 
-<<<<<<< HEAD
-=======
-    // SOLID: Dependency Inversion
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
     public AuthController(IAuthService authService)
     {
         _authService = authService;

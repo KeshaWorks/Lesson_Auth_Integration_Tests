@@ -1,32 +1,15 @@
-<<<<<<< HEAD
-﻿using AutoMapper;
-=======
-﻿// ====================================================================================================
-// Services/AuthService.cs
-// ====================================================================================================
 using AutoMapper;
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
 using Lesson_Auth_Integration_Tests.DTOs;
 using Lesson_Auth_Integration_Tests.Interfaces;
 using Lesson_Auth_Integration_Tests.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace Lesson_Auth_Integration_Tests.Services;
-<<<<<<< HEAD
-=======
-
-// SOLID: Single Responsibility - only todo-related logic
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
 public class TodoService : ITodoService
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly UserManager<IdentityUser> _userManager;
-<<<<<<< HEAD
-=======
-
-    // SOLID: Dependency Inversion
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
     public TodoService(
         IUnitOfWork unitOfWork,
         IMapper mapper,

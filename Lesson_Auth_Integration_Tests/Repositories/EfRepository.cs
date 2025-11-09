@@ -1,4 +1,4 @@
-﻿using Lesson_Auth_Integration_Tests.Persistence;
+﻿using Lesson_Auth_Integration_Tests.Db;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
