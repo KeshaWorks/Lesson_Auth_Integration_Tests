@@ -1,0 +1,6 @@
+@Lesson_Auth_Integration_Tests_HostAddress = http://localhost:5120
+
+GET {{Lesson_Auth_Integration_Tests_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
