@@ -1,4 +1,4 @@
-using Lesson_Auth_Integration_Tests.DTOs.Lesson_Auth_Integration_Tests.DTOs;
+using Lesson_Auth_Integration_Tests.DTOs;
 using Lesson_Auth_Integration_Tests.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

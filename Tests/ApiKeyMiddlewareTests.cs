@@ -1,5 +1,4 @@
-﻿using Lesson_Auth_Integration_Tests.Middleware;
-using Lesson_Auth_Integration_Tests.Middlewares;
+﻿using Lesson_Auth_Integration_Tests.Middlewares;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Moq;
