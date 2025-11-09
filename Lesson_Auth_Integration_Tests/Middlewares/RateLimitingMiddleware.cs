@@ -1,5 +1,4 @@
-﻿using Lesson_Auth_Integration_Tests.Middlewares.Lesson_Auth_Integration_Tests.Middleware;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 
 namespace Lesson_Auth_Integration_Tests.Middlewares;
 public class RateLimitingMiddleware
@@ -34,20 +33,11 @@ public class RateLimitingMiddleware
 
             var (lastRequestTime, requestCount) = clientData;
             var now = DateTime.UtcNow;
-
-<<<<<<< HEAD
-
-            // Reset counter if minute has passed
- d2042769511955c35cf19f62e6198f8ee90cdd8e
             if ((now - lastRequestTime).TotalMinutes >= 1)
             {
                 requestCount = 0;
             }
 
-<<<<<<< HEAD
-
-            // Check rate limit
- d2042769511955c35cf19f62e6198f8ee90cdd8e
             if (requestCount >= _settings.RequestsPerMinute)
             {
                 context.Response.StatusCode = 429;
@@ -56,10 +46,6 @@ public class RateLimitingMiddleware
                 return;
             }
 
-<<<<<<< HEAD
-
-            // Update counters
- d2042769511955c35cf19f62e6198f8ee90cdd8e
             requestCount++;
             _ratesStore.ClientRequests[ipAddress] = (now, requestCount);
         }

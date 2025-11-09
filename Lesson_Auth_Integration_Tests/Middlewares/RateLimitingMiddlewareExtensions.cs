@@ -1,5 +1,3 @@
-using Lesson_Auth_Integration_Tests.Middlewares.Lesson_Auth_Integration_Tests.Middleware;
-
 namespace Lesson_Auth_Integration_Tests.Middlewares;
 
 public static class RateLimitingMiddlewareExtensions

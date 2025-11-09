@@ -1,8 +1,4 @@
-﻿using Lesson_Auth_Integration_Tests.Middleware;
-<<<<<<< HEAD
-using Lesson_Auth_Integration_Tests.Middlewares;
-=======
->>>>>>> d2042769511955c35cf19f62e6198f8ee90cdd8e
+﻿using Lesson_Auth_Integration_Tests.Middlewares;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
